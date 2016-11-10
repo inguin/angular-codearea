@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular codearea example</title>
+  <link rel="stylesheet" href="angular-codearea.css">
+</head>
+
+<body>
+  <div style="width: 800px; height: 400px; overflow: scroll; border: 1px solid">
+    <my-codearea ng-model="test" syntax="lua"></my-codearea>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="angular-codearea.js"></script>
+  <script>
+    angular.module('app', ['ivl.angular-codearea'])
+      .run(function($rootScope) {
+	 var xhr = new XMLHttpRequest();
+	 xhr.onreadystatechange = function() { $rootScope.test = xhr.responseText; };
+	 xhr.open('GET', 'sample.lua')
+	 xhr.send();
+       });
+  </script>
+</body>
+
+</html>
