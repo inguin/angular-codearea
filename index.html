@@ -9,7 +9,7 @@
 
 <body>
   <div style="width: 800px; height: 400px; overflow: scroll; border: 1px solid">
-    <my-codearea ng-model="test" syntax="lua"></my-codearea>
+    <ivl-codearea ng-model="text" syntax="lua"></ivl-codearea>
   </div>
 
   <script src="bower_components/angular/angular.js"></script>
@@ -18,7 +18,7 @@
     angular.module('app', ['ivl.angular-codearea'])
       .run(function($rootScope) {
 	 var xhr = new XMLHttpRequest();
-	 xhr.onreadystatechange = function() { $rootScope.test = xhr.responseText; };
+	 xhr.onreadystatechange = function() { $rootScope.text = xhr.responseText; };
 	 xhr.open('GET', 'sample.lua')
 	 xhr.send();
        });

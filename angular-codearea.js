@@ -8,7 +8,7 @@
 
 angular
     .module('ivl.angular-codearea', ['ng'])
-    .directive('myCodearea', function() {
+    .directive('ivlCodearea', function() {
 	// directive template: transparent textarea in front of a <pre> layer with highlighted text
         var template =
             '<div class="codearea">' +
